@@ -1,5 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, BelongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import PlanByTouristActivity from './PlanByTouristActivity'
+import GuideByTouristActivity from './GuideByTouristActivity'
+import Municipio from './Municipio'
 
 export default class TouristActivity extends BaseModel {
   @column({ isPrimary: true })
@@ -20,5 +23,16 @@ export default class TouristActivity extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  
+        @hasMany(() => PlanByTouristActivity, {
+        foreignKey: 'tourist_activity_id',
+      })
+      public planByTouristActivity: HasMany<typeof PlanByTouristActivity>
+
+            @hasMany(() => GuideByTouristActivity, {
+        foreignKey: 'tourist_activity_id',
+      })
+      public guideByTouristActivity: HasMany<typeof GuideByTouristActivity>
+
+      @belongsTo(() => Municipio, { foreignKey: 'municipio_id' })
+      public municipio: BelongsTo<typeof Municipio>
 }

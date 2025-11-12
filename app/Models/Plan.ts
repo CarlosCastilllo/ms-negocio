@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import PlanByTouristActivity from './PlanByTouristActivity'
+import PlanTrip from './PlanTrip'
 
 export default class Plan extends BaseModel {
   @column({ isPrimary: true })
@@ -28,4 +30,14 @@ export default class Plan extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+      @hasMany(() => PlanByTouristActivity, {
+      foreignKey: 'plan_id',
+    })
+    public planByTouristActivity: HasMany<typeof PlanByTouristActivity>
+
+    @hasMany(() => PlanTrip, {
+      foreignKey: 'plan_id',
+    })
+    public planTrip: HasMany<typeof PlanTrip>
 }

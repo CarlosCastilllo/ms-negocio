@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import Travel from './Travel'
+import Bill from './Bill'
 
 export default class Share extends BaseModel {
   @column({ isPrimary: true })
@@ -13,6 +15,14 @@ export default class Share extends BaseModel {
 
   @column()
   public travel_id: number
+
+    @belongsTo(() => Travel, { foreignKey: 'travel_id' })
+    public travel: BelongsTo<typeof Travel>
+
+    @hasOne(() => Bill, {
+    foreignKey: 'share_id', // Foreign key on the Projector model 
+  })
+  public bill: HasOne<typeof Bill>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

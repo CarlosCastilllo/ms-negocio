@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, belongsTo, BelongsTo } from '@ioc:Adonis/Lucid/Orm'
 import Room from 'App/Models/Room'
-import Trip from 'App/Models/Travel'
+import Travel from 'App/Models/Travel'
 
 export default class RoomTrip extends BaseModel {
   @column({ isPrimary: true })
@@ -28,8 +28,8 @@ export default class RoomTrip extends BaseModel {
   @belongsTo(() => Room, { foreignKey: 'room_id' })
   public room: BelongsTo<typeof Room>
 
-  @belongsTo(() => Trip, { foreignKey: 'trip_id' })
-  public trip: BelongsTo<typeof Trip>
+  @belongsTo(() => Travel, { foreignKey: 'travel_id' })
+  public travel: BelongsTo<typeof Travel>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
