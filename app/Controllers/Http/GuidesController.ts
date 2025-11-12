@@ -50,8 +50,7 @@ export default class GuidesController {
       guide.identification = payload.identification
       guide.phone = payload.phone
       guide.email = payload.email
-      guide.administrator_id = payload.administrator_id
-
+    
       return await guide.save()
     } catch (error: any) {
       if (error.messages) return response.badRequest({ errors: error.messages.errors })

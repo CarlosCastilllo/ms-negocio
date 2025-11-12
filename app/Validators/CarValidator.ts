@@ -9,7 +9,7 @@ export default class CarValidator {
     brand: schema.string({ trim: true }, [rules.required(), rules.maxLength(50)]),
     model: schema.string({ trim: true }, [rules.required(), rules.maxLength(50)]),
     color: schema.string({ trim: true }, [rules.required(), rules.maxLength(30)]),
-    administrator_id: schema.number([rules.required()]),
+    
   })
 
   public messages = {

@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import Aircraft from './Aircraft'
 
 export default class Airline extends BaseModel {
   @column({ isPrimary: true })
@@ -19,4 +20,10 @@ export default class Airline extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @hasMany(() => Aircraft, {
+      foreignKey: 'aircraft_id', // Foreign key on the Seat model
+    })
+    public aircraft: HasMany<typeof Aircraft>
+
 }

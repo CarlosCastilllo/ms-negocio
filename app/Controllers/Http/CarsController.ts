@@ -49,7 +49,7 @@ export default class CarsController {
       car.brand = payload.brand
       car.model = payload.model
       car.color = payload.color
-      car.administrator_id = payload.administrator_id
+      
 
       return await car.save()
     } catch (error: any) {

@@ -10,7 +10,7 @@ export default class extends BaseSchema {
       table.string('brand')
       table.string('model')
       table.string('color')
-      table.integer('administrator_id')
+      
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

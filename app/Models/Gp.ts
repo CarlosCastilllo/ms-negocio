@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import Vehicle from './Vehicle'
 
 export default class Gp extends BaseModel {
   @column({ isPrimary: true })
@@ -7,6 +8,9 @@ export default class Gp extends BaseModel {
 
   @column()
   public latitude: number // Latitud de la coordenada GPS
+
+  @column()
+  public vehicle_id: number //lalve foranea
 
   @column()
   public longitude: number // Longitud de la coordenada GPS
@@ -25,4 +29,10 @@ export default class Gp extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @hasOne(() => Vehicle, {
+    foreignKey: 'vehicle_id', // Foreign key on the Vehicle model
+  })
+  public vehicle: HasOne<typeof Vehicle>
+
 }

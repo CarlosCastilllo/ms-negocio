@@ -7,7 +7,6 @@ export default class GuideValidator {
     identification: schema.string({ trim: true }, [rules.required(), rules.maxLength(20)]),
     phone: schema.string({ trim: true }, [rules.mobile({ locale: ['es-CO'] })]),
     email: schema.string({ trim: true }, [rules.email()]),
-    administrator_id: schema.number([rules.required()]),
   })
 
   public messages = {
