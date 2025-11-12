@@ -22,6 +22,9 @@ export default class Guide extends BaseModel {
   @column()
   public email: string
 
+  @column()
+  public userId: number
+
   
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

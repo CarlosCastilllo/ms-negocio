@@ -11,6 +11,7 @@ export default class extends BaseSchema {
       table.string('identification')
       table.string('phone')
       table.string('email')
+      table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
