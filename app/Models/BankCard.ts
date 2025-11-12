@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import Client from './Client'
 
 export default class BankCard extends BaseModel {
   @column({ isPrimary: true })
@@ -19,4 +20,10 @@ export default class BankCard extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @belongsTo(() => Client, {
+    foreignKey: 'client_id', // Foreign key on the Client model
+  })
+  public client: BelongsTo<typeof Client>
+
 }

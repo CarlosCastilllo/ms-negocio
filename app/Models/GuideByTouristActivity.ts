@@ -22,16 +22,16 @@ export default class GuideByTouristActivity extends BaseModel {
   @column()
   public notes?: string
 
-  // Relaciones
-  @belongsTo(() => Guide, { foreignKey: 'guide_id' })
-  public guide: BelongsTo<typeof Guide>
-
-  @belongsTo(() => TouristActivity, { foreignKey: 'tourist_activity_id' })
-  public touristActivity: BelongsTo<typeof TouristActivity>
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+   // Relaciones
+  @belongsTo(() => Guide, { foreignKey: 'guide_id' })
+  public guide: BelongsTo<typeof Guide>
+
+  @belongsTo(() => TouristActivity, { foreignKey: 'tourist_activity_id' })
+  public touristActivity: BelongsTo<typeof TouristActivity>
 }

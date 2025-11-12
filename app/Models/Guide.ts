@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import GuideByTouristActivitiesController from 'App/Controllers/Http/GuideByTouristActivitiesController'
+import GuideByTouristActivity from './GuideByTouristActivity'
 
 export default class Guide extends BaseModel {
   @column({ isPrimary: true })
@@ -20,12 +22,15 @@ export default class Guide extends BaseModel {
   @column()
   public email: string
 
-  @column()
-  public administrator_id: number // FK hacia Administrator
-
+  
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @hasMany(() => GuideByTouristActivity, {
+      foreignKey: 'guide_id', // Foreign key on the GuideByTouristActivity model
+    })
+    public guideByTouristActivity : HasMany<typeof GuideByTouristActivity>
 }
