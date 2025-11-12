@@ -10,11 +10,8 @@ export default class extends BaseSchema {
       table.string('brand')
       table.string('model')
       table.string('color')
-      
-
-      /**
-       * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
-       */
+      table.integer('vehicle_id').unsigned().references('id').inTable('vehicles').notNullable()
+      table.integer('hotel_id').unsigned().references('id').inTable('hotels').notNullable()
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

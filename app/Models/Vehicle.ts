@@ -31,7 +31,7 @@ export default class Vehicle extends BaseModel {
   @hasMany(() => TransportService, {
     foreignKey: "vehicle_id",
   })
-  public transportService: HasMany<typeof TransportService>;
+  public transportServices: HasMany<typeof TransportService>;
 
   @hasOne(() => Car, {
     foreignKey: "vehicle_id", // Foreign key on the Projector model

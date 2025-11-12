@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, BelongsTo, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Airline from './Airline'
+import Vehicle from './Vehicle'
 
 export default class Aircraft extends BaseModel {
   @column({ isPrimary: true })
@@ -28,4 +29,9 @@ export default class Aircraft extends BaseModel {
     foreignKey: 'airline_id', // Foreign key on the Airline model
   })
   public airline: BelongsTo<typeof Airline>
+
+  @belongsTo(() => Vehicle, {
+    foreignKey: 'vehicle_id', // Foreign key on the Vehicle model
+  })
+  public vehicle: BelongsTo<typeof Vehicle>
 }

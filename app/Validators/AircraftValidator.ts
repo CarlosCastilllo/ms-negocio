@@ -14,6 +14,10 @@ export default class AircraftValidator {
     airline_id: schema.number([
       rules.exists({ table: 'airlines', column: 'id' }), // verifica que exista la aerolínea
     ]),
+
+    vehicle_id: schema.number([
+      rules.exists({ table: 'vehicles', column: 'id' }), // verifica que exista la aerolínea
+    ]),
   })
 
   public messages = {

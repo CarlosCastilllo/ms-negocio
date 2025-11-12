@@ -31,7 +31,7 @@ export default class Room extends BaseModel {
       @hasMany(() => RoomTrip, {
         foreignKey: 'room_id',
       })
-      public roomTrip: HasMany<typeof RoomTrip>
+      public roomTrips: HasMany<typeof RoomTrip>
 
       
       @belongsTo(() => Hotel, {

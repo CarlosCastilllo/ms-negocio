@@ -39,16 +39,16 @@ export default class Travel extends BaseModel {
     @hasMany(() => RoomTrip, {
         foreignKey: 'travel_id',
       })
-      public roomTrip: HasMany<typeof RoomTrip>
+      public roomTrips: HasMany<typeof RoomTrip>
 
       
     @hasMany(() => PlanTrip, {
         foreignKey: 'travel_id',
       })
-      public planTrip: HasMany<typeof PlanTrip>
+      public planTrips: HasMany<typeof PlanTrip>
 
           @hasMany(() => ClientTravel, {
         foreignKey: 'travel_id',
       })
-      public clientTravel: HasMany<typeof ClientTravel>
+      public clientTravels: HasMany<typeof ClientTravel>
 }

@@ -35,5 +35,5 @@ export default class TransportService extends BaseModel {
     @hasMany(() => Itinerary, {
       foreignKey: 'transport_service_id',
     })
-    public Itinerary: HasMany<typeof Itinerary>
+    public Itinerarys: HasMany<typeof Itinerary>
 }

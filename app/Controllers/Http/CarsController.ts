@@ -49,6 +49,8 @@ export default class CarsController {
       car.brand = payload.brand
       car.model = payload.model
       car.color = payload.color
+      car.vehicle_id = payload.vehicle_id
+      car.hotel_id = payload.hotel_id
       
 
       return await car.save()

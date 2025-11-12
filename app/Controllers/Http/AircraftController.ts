@@ -33,6 +33,7 @@ export default class AircraftsController {
         theAircraft.model = body.model;
         theAircraft.capacity = body.capacity;
         theAircraft.airline_id = body.airline_id;
+        theAircraft.vehicle_id = body.vehicle_id
         return await theAircraft.save();
     }
 

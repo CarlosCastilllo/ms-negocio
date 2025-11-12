@@ -36,10 +36,10 @@ export default class Municipio extends BaseModel {
     @hasMany(() => Hotel, {
     foreignKey: 'municipio_id',
   })
-  public hotel: HasMany<typeof Hotel>
+  public hotels: HasMany<typeof Hotel>
 
       @hasMany(() => TouristActivity, {
     foreignKey: 'municipio_id',
   })
-  public touristActicity: HasMany<typeof TouristActivity>
+  public touristActicities: HasMany<typeof TouristActivity>
 }

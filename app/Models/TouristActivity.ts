@@ -26,12 +26,12 @@ export default class TouristActivity extends BaseModel {
         @hasMany(() => PlanByTouristActivity, {
         foreignKey: 'tourist_activity_id',
       })
-      public planByTouristActivity: HasMany<typeof PlanByTouristActivity>
+      public planByTouristActivities: HasMany<typeof PlanByTouristActivity>
 
             @hasMany(() => GuideByTouristActivity, {
         foreignKey: 'tourist_activity_id',
       })
-      public guideByTouristActivity: HasMany<typeof GuideByTouristActivity>
+      public guideByTouristActivities: HasMany<typeof GuideByTouristActivity>
 
       @belongsTo(() => Municipio, { foreignKey: 'municipio_id' })
       public municipio: BelongsTo<typeof Municipio>

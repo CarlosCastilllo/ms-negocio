@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, BelongsTo, column} from '@ioc:Adonis/Lucid/Orm'
 import Vehicle from './Vehicle'
 
 export default class Gp extends BaseModel {
@@ -30,9 +30,9 @@ export default class Gp extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @hasOne(() => Vehicle, {
+  @belongsTo(() => Vehicle, {
     foreignKey: 'vehicle_id', // Foreign key on the Vehicle model
   })
-  public vehicle: HasOne<typeof Vehicle>
+  public vehicle: BelongsTo<typeof Vehicle>
 
 }

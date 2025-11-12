@@ -34,10 +34,10 @@ export default class Plan extends BaseModel {
       @hasMany(() => PlanByTouristActivity, {
       foreignKey: 'plan_id',
     })
-    public planByTouristActivity: HasMany<typeof PlanByTouristActivity>
+    public planByTouristActivities: HasMany<typeof PlanByTouristActivity>
 
     @hasMany(() => PlanTrip, {
       foreignKey: 'plan_id',
     })
-    public planTrip: HasMany<typeof PlanTrip>
+    public planTrips: HasMany<typeof PlanTrip>
 }
