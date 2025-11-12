@@ -23,7 +23,7 @@ export default class Guide extends BaseModel {
   public email: string
 
   @column()
-  public userId: number
+  public user_id: number
 
   
   @column.dateTime({ autoCreate: true })
